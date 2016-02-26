@@ -1,0 +1,12 @@
+.container {
+    text-align: center;
+}
+.person {
+    background-color: tomato;
+    width: 100px;
+    display: inline-block;
+    margin: 10px;
+    border-radius: 3px;
+    padding: 3px;
+
+}

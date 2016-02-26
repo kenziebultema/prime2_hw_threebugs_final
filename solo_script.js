@@ -14,7 +14,6 @@ $(document).ready(function(){
     //loop through array
     for(var i = 0; i < array.length; i++){
         array[i] = calculateSTI(array[i]);
-        // newArray.push(array[i]);
         console.log(newArray[i]);
         appendDom(newArray[i]);
     }
@@ -27,7 +26,6 @@ function People(name, id, salary, rating){
   this.id = id;
   this.salary = salary;
   this.rating = rating;
-  // newArray.push(this);
 }
 //new object constructor, post sti calc
 function newPeople(name, bonusPerc, salaryMod, bonus){
@@ -39,21 +37,18 @@ function newPeople(name, bonusPerc, salaryMod, bonus){
 }
 
 function appendDom(newArray){
-    // console.log(object);
-    // for(var i = 0; i < newArray.length; i++){
-    //     var person = newArray[i];
     var person = newArray;
     $('.container').append('<div class="person"></div>');
     var $el = $('.container').children().last();
-    $el.append('<p>' + person.name + '</p>');
-    $el.append('<p>' + person.bonusPerc + '</p>');
-    $el.append('<p>' + person.salaryMod + '</p>');
-    $el.append('<p>' + person.bonus + '</p>');
-    //}
+    $el.append('<h3>' + person.name + '</h3>');
+    $el.append('<p>' + person.bonusPerc + '%</p>');
+    $el.append('<p>$' + person.salaryMod + '</p>');
+    $el.append('<p>$' + person.bonus + '</p>');
 }
 
 //code supplied to us
 function calculateSTI(object){
+    //set variable equal to newPeople object
     var personPostCalc = new newPeople;
 
   personPostCalc.name =  object.name ;
@@ -68,7 +63,7 @@ function calculateSTI(object){
     bonus = 0.13;
   }
 
-  personPostCalc.bonusPerc = "  " + bonus;
+  personPostCalc.bonusPerc = "  " + (bonus * 100);
 
   personPostCalc.bonus = "  " + Math.round(baseSalary * (1.0 + bonus));
 
